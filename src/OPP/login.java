@@ -112,16 +112,16 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String user = txtUsername.getText();
-        String pass = new String(txtPassword.getPassword());
+        String Uname = txtUsername.getText();
+        String pw = new String(txtPassword.getPassword());
         
         try {
 
             Connection K = Koneksi.Go();
             String Q = "SELECT * FROM users WHERE username=? AND password=?;";
             PreparedStatement S = K.prepareStatement(Q);
-            S.setString(1, user);
-            S.setString(2, pass);
+            S.setString(1, Uname);
+            S.setString(2, pw);
             ResultSet R = S.executeQuery();
             int count = 0;
             Profile P = new Profile();
@@ -138,13 +138,13 @@ public class login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Sukses Login");
                 switch (P.getLevel()) {
                     case "admin" ->                         {
-                            AdminPage O = new AdminPage(P);
-                            O.setExtendedState(Frame.MAXIMIZED_BOTH);
+                            Page_Admin A = new Page_Admin(P);
+                            A.setExtendedState(Frame.MAXIMIZED_BOTH);
                             this.setVisible(false);
-                            O.setVisible(true);
+                            A.setVisible(true);
                         }
 //                    case "KASIR" ->                         {
-//                            kasir_page O = new kasir_page(P);
+//                            HalamanUser O = new HalamanUser(P);
 //                            O.setExtendedState(Frame.MAXIMIZED_BOTH);
 //                            this.setVisible(false);
 //                            O.setVisible(true); 
@@ -159,7 +159,7 @@ public class login extends javax.swing.JFrame {
                     }
                 }
             }else{
-                JOptionPane.showMessageDialog(this, "Invalid username/password");
+                JOptionPane.showMessageDialog(this, "gagal");
                 txtUsername.requestFocus();
             }
             

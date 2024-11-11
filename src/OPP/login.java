@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Akmal Kurniawan
@@ -24,6 +25,9 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+    }
+    public login (Profile P){
+        
     }
 
     /**
@@ -118,7 +122,7 @@ public class login extends javax.swing.JFrame {
         try {
 
             Connection K = Koneksi.Go();
-            String Q = "SELECT * FROM users WHERE username=? AND password=?;";
+            String Q = "SELECT * FROM users WHERE username=? AND Password=?;";
             PreparedStatement S = K.prepareStatement(Q);
             S.setString(1, Uname);
             S.setString(2, pw);

@@ -166,7 +166,7 @@ public class Page_Admin extends javax.swing.JFrame {
 
     private void btnuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuserActionPerformed
         // TODO add your handling code here:
-        User.table_user tus = new User.table_user();
+        User.table_user tus= new User.table_user();
         tus.setVisible(true);
     }//GEN-LAST:event_btnuserActionPerformed
 

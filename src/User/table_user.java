@@ -6,6 +6,7 @@ package User;
 
 
 import OPP.Koneksi;
+import OPP.Profile;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -24,13 +25,14 @@ public class table_user extends javax.swing.JFrame {
      */
     
     
-    
+    Profile P;
 
     static DefaultTableModel m;
             
     public table_user() {
         initComponents();      
-        viewdata("");
+        settingT();
+        viewDataUser("");
     }
 
     /**
@@ -194,7 +196,7 @@ public class table_user extends javax.swing.JFrame {
                     Connection K = Koneksi.Go();
                     Statement S = K.createStatement();
                     S.executeUpdate(Q);
-                    viewdata(""); 
+                    viewDataUser(""); 
                     JOptionPane.showMessageDialog(this, "Data "+fullname+" telah terhapus");
                 } catch (SQLException e) {
                 }
@@ -235,7 +237,7 @@ public class table_user extends javax.swing.JFrame {
 
     private void mulaiulanguserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mulaiulanguserActionPerformed
         // TODO add your handling code here:
-        viewdata("");
+        viewDataUser("");
     }//GEN-LAST:event_mulaiulanguserActionPerformed
 
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
@@ -289,10 +291,10 @@ public class table_user extends javax.swing.JFrame {
     private javax.swing.JTable tableuser;
     private javax.swing.JButton tambahuser;
     // End of variables declaration//GEN-END:variables
-    public static void viewdata(String where) {
+    public static void viewDataUser(String where) {
         try {
             //kode kita
-            for (int i = m.getRowCount()-1; i >=0; i--) {
+            for (int i = m.getRowCount()-1; i >=0; i--) { 
                 m.removeRow(i);
             }
 
@@ -306,10 +308,10 @@ public class table_user extends javax.swing.JFrame {
                 int ID = R.getInt("ID");
                 String fullname = R.getString("fullname");
                 String username = R.getString("username");
-                String password = R.getString("Password");
+                String Password = R.getString("Password");
                 String level = R.getString("level");
 
-                Object[] D = {no, ID, fullname, username, password, level};
+                Object[] D = {no, ID, fullname, username, Password, level};
                 m.addRow(D);
 
                 no++;
@@ -318,5 +320,21 @@ public class table_user extends javax.swing.JFrame {
             //error handling
         }
     }
+    
+    private void settingT() {
+        m = (DefaultTableModel) tableuser.getModel();        
+        tableuser.getColumnModel().getColumn(0).setMinWidth(50);
+        tableuser.getColumnModel().getColumn(0).setMaxWidth(70);
+
+        tableuser.getColumnModel().getColumn(1).setMinWidth(0);
+        tableuser.getColumnModel().getColumn(1).setMaxWidth(0);
+
+        tableuser.getColumnModel().getColumn(2).setMinWidth(350);
+        tableuser.getColumnModel().getColumn(2).setMaxWidth(500);
+    }
+    
+    
+    
+
 
 }

@@ -210,7 +210,7 @@ public class TambahUser extends javax.swing.JDialog {
             P.setString(4, level);
             P.executeUpdate();
             
-            table_user.viewdata("");
+            table_user.viewDataUser("");
             JOptionPane.showMessageDialog(this, "Data berhasil disimpan");
             txtFullname.requestFocus();
         } catch (Exception e) {

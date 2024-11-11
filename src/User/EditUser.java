@@ -224,7 +224,7 @@ public class EditUser extends javax.swing.JDialog {
             P.setInt(5, getId());
             P.executeUpdate();
             
-            User.table_user.viewdata(""); 
+            User.table_user.viewDataUser(""); 
             JOptionPane.showMessageDialog(this, "Data berhasil disimpan");
             txtFullname.requestFocus();
         } catch (HeadlessException | SQLException e) {

@@ -24,7 +24,7 @@ public class table_produk extends javax.swing.JFrame {
     public table_produk() {
         initComponents();
         settingT();
-        viewdata("");
+        viewdatap("");
     }
 
     /**
@@ -43,14 +43,15 @@ public class table_produk extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableproduk = new javax.swing.JTable();
         btntambahproduk = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btneditproduk = new javax.swing.JButton();
+        btnhapusproduk = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
 
+        kembali.setBackground(new java.awt.Color(102, 255, 102));
         kembali.setText("Kembali");
         kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,13 +65,13 @@ public class table_produk extends javax.swing.JFrame {
 
         tableproduk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "NO", "Nama Produk", "Kategori", "Harga Beli", "Harga Jual", "Stok"
+                "No", "ID", "Kode produk", "Nama Produk", "Kategori", "Harga Beli", "Harga Jual", "Stok"
             }
         ));
         jScrollPane1.setViewportView(tableproduk);
@@ -82,16 +83,26 @@ public class table_produk extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Edit");
-
-        jButton3.setText("Hapus");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btneditproduk.setText("Edit");
+        btneditproduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btneditprodukActionPerformed(evt);
+            }
+        });
+
+        btnhapusproduk.setText("Hapus");
+        btnhapusproduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhapusprodukActionPerformed(evt);
             }
         });
 
         jButton4.setText("Restart");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,9 +125,9 @@ public class table_produk extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btntambahproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btneditproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnhapusproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -131,24 +142,17 @@ public class table_produk extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1)))
+                .addGap(19, 19, 19)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btntambahproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(404, 404, 404)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(404, 404, 404)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(404, 404, 404)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(btntambahproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btneditproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnhapusproduk, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,17 +163,17 @@ public class table_produk extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_kembaliActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnhapusprodukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhapusprodukActionPerformed
         int n = tableproduk.getSelectedRow();
         if(n != -1){
             int id = Integer.parseInt(tableproduk.getValueAt(n, 1).toString());
@@ -188,7 +192,7 @@ public class table_produk extends javax.swing.JFrame {
                     Connection K = OPP.Koneksi.Go();
                     Statement S = K.createStatement();
                     S.executeUpdate(Q);
-                    viewdata(""); 
+                    viewdatap(""); 
                     JOptionPane.showMessageDialog(this, "Data "+namaproduk+" telah terhapus");
                 } catch (SQLException e) {
                 }
@@ -197,11 +201,46 @@ public class table_produk extends javax.swing.JFrame {
         }else {
             JOptionPane.showMessageDialog(this, "Anda belum memilih data");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnhapusprodukActionPerformed
 
     private void btntambahprodukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntambahprodukActionPerformed
-        // TODO add your handling code here:
+         TambahProduk TP = new TambahProduk(this,true);
+        TP.setVisible(true);
     }//GEN-LAST:event_btntambahprodukActionPerformed
+
+    private void btneditprodukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditprodukActionPerformed
+int n = tableproduk.getSelectedRow();
+if (n != -1) {
+    try {
+        int ID = Integer.parseInt(tableproduk.getValueAt(n, 1).toString());
+        int Kode_Produk = Integer.parseInt(tableproduk.getValueAt(n, 2).toString());
+        String Nama_Produk = tableproduk.getValueAt(n, 3).toString();
+        String Kategori = tableproduk.getValueAt(n, 4).toString();
+        double Harga_Jual = Double.parseDouble(tableproduk.getValueAt(n, 5).toString());
+        double Harga_Beli = Double.parseDouble(tableproduk.getValueAt(n, 6).toString());
+        int Stok = Integer.parseInt(tableproduk.getValueAt(n, 7).toString());
+        
+        Editproduk EP = new Editproduk(this, true);
+        EP.setId(ID);
+        EP.setKodeProduk(Kode_Produk); 
+        EP.setNamaProduk(Nama_Produk); 
+        EP.setKategori(Kategori); 
+        EP.setHargaJual(Harga_Jual); 
+        EP.setHargaBeli(Harga_Beli); 
+        EP.set(Stok); 
+        EP.setVisible(true);
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Error parsing data: " + e.getMessage());
+    }
+} else {
+    JOptionPane.showMessageDialog(this, "Anda belum memilih data");
+}
+    }//GEN-LAST:event_btneditprodukActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        viewdatap("");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,9 +278,9 @@ public class table_produk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btneditproduk;
+    private javax.swing.JButton btnhapusproduk;
     private javax.swing.JButton btntambahproduk;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -250,7 +289,7 @@ public class table_produk extends javax.swing.JFrame {
     private javax.swing.JButton kembali;
     private javax.swing.JTable tableproduk;
     // End of variables declaration//GEN-END:variables
-    public static void viewdata(String where) {
+    public static void viewdatap(String where) {
         try {
             //kode kita
             for (int i = m.getRowCount()-1; i >=0; i--) {
@@ -265,14 +304,15 @@ public class table_produk extends javax.swing.JFrame {
             int no = 1;
             while (R.next()) {
                 int id = R.getInt("ID");
+                String kodeproduk = R.getString("Kode_Produk");
                 String namaproduk = R.getString("Nama_Produk");
                 String kategori = R.getString("Kategori");
-                int hargabeli = R.getInt("Harga_Beli");
-                int hergajual = R.getInt("Harga_Jual");
-                int stok = R.getInt("Stok");
+                String hargabeli = R.getString("Harga_Beli");
+                String hergajual = R.getString("Harga_Jual");
+                String stok = R.getString("Stok");
                 
 
-                Object[] D = {no, id, namaproduk, kategori, hargabeli, hergajual,stok};
+                Object[] D = {no, id, kodeproduk, namaproduk, kategori, hargabeli, hergajual,stok};
                 m.addRow(D);
 
                 no++;
@@ -283,13 +323,13 @@ public class table_produk extends javax.swing.JFrame {
     }
     private void settingT() {
         m = (DefaultTableModel) tableproduk.getModel();        
-        tableproduk.getColumnModel().getColumn(0).setMinWidth(50);
-        tableproduk.getColumnModel().getColumn(0).setMaxWidth(70);
-
-        tableproduk.getColumnModel().getColumn(1).setMinWidth(0);
-        tableproduk.getColumnModel().getColumn(1).setMaxWidth(0);
-
-        tableproduk.getColumnModel().getColumn(2).setMinWidth(350);
-        tableproduk.getColumnModel().getColumn(2).setMaxWidth(500);
+//        tableproduk.getColumnModel().getColumn(0).setMinWidth(50);
+//        tableproduk.getColumnModel().getColumn(0).setMaxWidth(70);
+//
+//        tableproduk.getColumnModel().getColumn(1).setMinWidth(0);
+//        tableproduk.getColumnModel().getColumn(1).setMaxWidth(0);
+//
+//        tableproduk.getColumnModel().getColumn(2).setMinWidth(350);
+//        tableproduk.getColumnModel().getColumn(2).setMaxWidth(500);
     }
 }    

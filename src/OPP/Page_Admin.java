@@ -62,6 +62,11 @@ public class Page_Admin extends javax.swing.JFrame {
         btnuser = new javax.swing.JButton();
         btn_transaksi1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtlogout = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,6 +125,26 @@ public class Page_Admin extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(204, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 200, -1));
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 200, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("Jabatan");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("Nama");
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        txtlogout.setBackground(new java.awt.Color(255, 0, 0));
+        txtlogout.setForeground(new java.awt.Color(255, 255, 255));
+        txtlogout.setText("Logout");
+        txtlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtlogoutActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 100, 100, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -174,6 +199,11 @@ public class Page_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_transaksi1ActionPerformed
 
+    private void txtlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlogoutActionPerformed
+        this.setVisible(false);
+        new login().setVisible(true);
+    }//GEN-LAST:event_txtlogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,14 +245,20 @@ public class Page_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btn_transaksi1;
     private javax.swing.JButton btnuser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton txtlogout;
     // End of variables declaration//GEN-END:variables
-
+    
+    
     public void viewData(String where) {
         try {
            
